@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.postcss';
-
+	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
 	// Highlight JS
 	import hljs from 'highlight.js/lib/core';
 	import 'highlight.js/styles/github-dark.css';
@@ -22,4 +22,11 @@
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
-<slot />
+<AppShell>
+	<svelte:fragment slot="header">
+		<AppBar>
+			<h3 class="text-left">CodeShare</h3>
+		</AppBar>
+	</svelte:fragment>
+	<slot />
+</AppShell>

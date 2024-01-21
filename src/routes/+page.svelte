@@ -1,15 +1,36 @@
-<!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
+<script lang="ts">
+	import CodeSnippetCard from '../CodeSnippetCard.svelte';
+	let formData: CodeSnippetInput = {
+		title: '',
+		language: 'html',
+		code: ''
+	};
+</script>
 
-<div class="container h-full mx-auto flex justify-center items-center">
-	<div class="space-y-5">
-		<h1 class="h1">Let's get cracking bones!</h1>
-		<p>Start by exploring:</p>
-		<ul>
-			<li><code class="code">/src/routes/+layout.svelte</code> - barebones layout</li>
-			<li><code class="code">/src/app.postcss</code> - app wide css</li>
-			<li>
-				<code class="code">/src/routes/+page.svelte</code> - this page, you can replace the contents
-			</li>
-		</ul>
+<div class="flex justify-center">
+	<div class="grid grid-cols-1 gap-4 min-w-full md:min-w-[750px]">
+		<h3 class="text-center py-6">Create A Code Snippet</h3>
+		<div class="card p-4 w-full text-token space-y-4">
+			<label class="label">
+				<span>Snippet Title</span>
+				<input type="text" class="input" placeholder="Enter title here..." />
+			</label>
+			<label class="label">
+				<span>Programming Language</span>
+				<select class="select">
+					<option value="html">HTML</option>
+					<option value="css">CSS</option>
+					<option value="typescript">TypeScript</option>
+					<option value="svelte">Svelte</option>
+				</select>
+			</label>
+			<label class="label">
+				<span>Code Snippet</span>
+				<textarea placeholder="Enter your snippet code here..." rows="4" class="textarea"
+				></textarea>
+			</label>
+		</div>
+		<div class="text-center py-6"><h2>My Code Snippets</h2></div>
+		<CodeSnippetCard />
 	</div>
 </div>
